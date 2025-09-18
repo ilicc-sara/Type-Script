@@ -12,13 +12,26 @@ function App() {
     draftCount: 0,
   };
 
-  const reducer = (state = initialState, action: any) => {
+  type Action = {
+    type: "increment" | "decrement" | "reset" | "updateCountFromDraft";
+  };
+
+  type ActionWithPayload {
+    type: "updateDraftCount",
+    payload: number
+  }
+
+  const reducer = (state = initialState, action: Action | ActionWithPayload) => {
     const { count, draftCount } = state;
+
+
 
     if (action.type === "increment") {
       const newCount = count + 1;
       return { count: newCount, draftCount: newCount };
     }
+
+     
 
     if (action.type === "decrement") {
       const newCount = count - 1;
@@ -69,8 +82,8 @@ function App() {
         >
           <input
             type="number"
-            value={draftCount}
-            onChange={(e) => setDraftCount(e.target.valueAsNumber)}
+            value={state.draftCount}
+            onChange={}
           />
 
           <button type="submit">Update Counter</button>
