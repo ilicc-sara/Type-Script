@@ -2,16 +2,50 @@ import { useReducer, useState, ActionDispatch, Dispatch } from "react";
 import "./App.css";
 
 function App() {
-  const reducer = (count: number, newValue): number => {
-    return newValue;
+  type InitialState = {
+    count: number;
+    draftCount: string | number;
   };
 
-  type ReducerState = ReturnType<typeof reducer>;
+  const initialState: InitialState = {
+    count: 0,
+    draftCount: 0,
+  };
+
+  const reducer = (state = initialState, action: any) => {
+    const { count, draftCount } = state;
+
+    if (action.type === "increment") {
+      const newCount = count + 1;
+      return { count: newCount, draftCount: newCount };
+    }
+
+    if (action.type === "decrement") {
+      const newCount = count - 1;
+      return { count: newCount, draftCount: newCount };
+    }
+
+    if (action.type === "reset") {
+      return { count: 0, draftCount: 0 };
+    }
+
+    if (action.type === "updateDraftCount") {
+      console.log("updateDraftCount");
+
+      return { count, draftCount: action.payload };
+    }
+
+    if (action.type === "updateCountFromDraft") {
+      return { count: Number(draftCount), draftCount };
+    }
+
+    return state;
+  };
 
   const [count, setCount] = useReducer(reducer, 0);
   const [draftCount, setDraftCount] = useState(count);
 
-  setCount(4);
+  // setCount(4);
   return (
     <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4">
       <h1>Days Since the Last Accindent</h1>
