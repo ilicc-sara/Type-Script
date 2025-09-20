@@ -1,14 +1,16 @@
 import React from "react";
 
 type CardProps = {
-  text: string;
-  count: number;
+  // text: string;
+  // count?: number;
+  children?: React.ReactNode;
 };
 
-function Card({ text, count }: CardProps) {
+// function Card({ text, count }: CardProps) {
+function Card({ children }: CardProps) {
   return (
     <div>
-      <span> {text} </span>
+      <span> {children} </span>
     </div>
   );
 }
