@@ -5,12 +5,20 @@ import Card from "./Card";
 const App = () => {
   // const [count, setCount] = useState(0);
 
-  function alertMessage(message: string) {
-    alert(message);
-  }
+  // function alertMessage(message: string) {
+  //   alert(message);
+  // }
+
+  const users = [
+    { name: "Austin", age: 26 },
+    { name: "Carter", age: 24 },
+    { name: "Julia", age: 23 },
+  ];
   return (
     <>
-      <Card alertMessage={alertMessage} />
+      {users.map((user) => {
+        return <Card user={user} />;
+      })}
     </>
   );
 };
