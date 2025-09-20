@@ -3,12 +3,10 @@ import "./App.css";
 import Card from "./Card";
 
 const App = () => {
+  const [count, setCount] = useState(0);
   return (
     <>
-      {/* <Card text={"Hello"} count={0} />
-      <Card text={"Hello"} />
-      <Card text={"Hello"} /> */}
-      <Card></Card>
+      <Card setCount={setCount} />
     </>
   );
 };

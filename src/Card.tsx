@@ -3,14 +3,18 @@ import React from "react";
 type CardProps = {
   // text: string;
   // count?: number;
-  children?: React.ReactNode;
+  // children?: React.ReactNode;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 // function Card({ text, count }: CardProps) {
-function Card({ children }: CardProps) {
+function Card({ setCount }: CardProps) {
   return (
     <div>
-      <span> {children} </span>
+      <button onClick={() => setCount((count: number) => count + 1)}>
+        {" "}
+        Increase Count
+      </button>
     </div>
   );
 }
