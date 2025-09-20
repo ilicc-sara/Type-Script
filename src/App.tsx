@@ -7,6 +7,10 @@ type User = {
   isAdmin?: boolean;
 };
 
+type UserAdmin = User & {
+  adminId: string;
+};
+
 const App = () => {
   function doSomething(x: (string | number)[]) {
     x[1] = true;
