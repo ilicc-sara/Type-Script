@@ -3,12 +3,14 @@ import "./App.css";
 
 type User = {
   name: string;
-  age: number;
+  age: number | string | boolean;
   isAdmin?: boolean;
 };
 
 const App = () => {
-  function doSomething(userObject: User) {}
+  function doSomething(x: (string | number)[]) {
+    x[1] = true;
+  }
 
   return <></>;
 };
