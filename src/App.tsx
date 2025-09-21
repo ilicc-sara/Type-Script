@@ -1,21 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-type User = {
-  name: string;
-  age: number;
-};
-
 const App = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {}
 
-  useEffect(() => {
-    setUser({ name: "Austin", age: 100 });
-    setLoading(false);
-  }, []);
-
-  return <>{loading}</>;
+  return (
+    <div onClick={(e) => handleClick(e)}>
+      <button>Click Me!</button>
+    </div>
+  );
 };
 
 export default App;
