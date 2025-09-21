@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 type User = {
@@ -8,8 +8,14 @@ type User = {
 
 const App = () => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  return <>{JSON.stringify(user?.name)}</>;
+  useEffect(() => {
+    setUser({ name: "Austin", age: 100 });
+    setLoading(false);
+  }, []);
+
+  return <>{loading}</>;
 };
 
 export default App;
