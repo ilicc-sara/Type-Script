@@ -18,7 +18,11 @@ const sizeMap = {
 };
 
 function Card({ color }: CardProps) {
-  return <div className={colorMap[color]}>Hello</div>;
+  return (
+    <>
+      <div className={colorMap[color]}>Hello</div>
+    </>
+  );
 }
 
 export default Card;

@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./App.css";
-import Card from "./Card";
+
+type User = {
+  name: string;
+  age: number;
+};
 
 const App = () => {
-  return (
-    <>
-      <Card color={"red"} size={"lg"} />;
-    </>
-  );
+  const [user, setUser] = useState<User | null>(null);
+
+  return <>{JSON.stringify(user?.name)}</>;
 };
 
 export default App;
