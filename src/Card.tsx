@@ -1,22 +1,24 @@
 import React from "react";
 
 type CardProps = {
-  // text: string;
-  // count?: number;
-  // children?: React.ReactNode;
-  // setCount: React.Dispatch<React.SetStateAction<number>>;
-  // alertMessage: (message: string) => void;
-  user: User;
+  color: "red" | "blue" | "purple";
+  size: "sm" | "md" | "lg";
 };
 
-type User = {
-  name: string;
-  age: number;
+const colorMap = {
+  red: "bg-red-500",
+  blue: "bg-blue-500",
+  purple: "bg-purple-500",
 };
 
-// function Card({ text, count }: CardProps) {
-function Card({ user }: CardProps) {
-  return <div>{JSON.stringify(user)}</div>;
+const sizeMap = {
+  sm: "w-12 h-12",
+  md: "w-36 h-36",
+  lg: "w-72 h-72",
+};
+
+function Card({ color }: CardProps) {
+  return <div className={colorMap[color]}>Hello</div>;
 }
 
 export default Card;

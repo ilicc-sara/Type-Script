@@ -173,6 +173,7 @@ age?: number;
 
 const Greeting = ({ name, age }: GreetingProps) => {
 return (
+
 <div className="p-4 mt-4 rounded-xl bg-blue-100 shadow-md text-center">
 <h2 className="text-2xl font-semibold text-blue-700">Hello, {name} 👋</h2>
 {age && <p className="text-gray-700">You are {age} years old.</p>}
@@ -187,6 +188,7 @@ children: React.ReactNode;
 
 const Card = ({ title, children }: CardProps) => {
 return (
+
 <div className="p-6 my-4 rounded-2xl shadow-lg bg-white border border-gray-200 w-80">
 <h3 className="mb-2 text-lg font-bold text-gray-800">{title}</h3>
 <div className="text-gray-600">{children}</div>
@@ -199,6 +201,7 @@ const [count, setCount] = useState<number>(0);
 const [username, setUsername] = useState<string>("");
 
 return (
+
 <div className="flex flex-col items-center min-h-screen p-8 bg-gray-50">
 <h1 className="mb-6 text-4xl font-extrabold text-indigo-600">
 Learning TypeScript with React 🚀
@@ -240,3 +243,36 @@ Learning TypeScript with React 🚀
 
 export default App;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+```import React from "react";
+
+type CardProps = {
+  // text: string;
+  // count?: number;
+  // children?: React.ReactNode;
+  // setCount: React.Dispatch<React.SetStateAction<number>>;
+  // alertMessage: (message: string) => void;
+  // user: User;
+  color: "red" | "blue" | "purple";
+};
+
+// function Card({ text, count }: CardProps) {
+function Card({ user }: CardProps) {
+  return <div>{JSON.stringify(user)}</div>;
+}
+
+export default Card;
+
+// const [count, setCount] = useState(0);
+
+  // function alertMessage(message: string) {
+  //   alert(message);
+  // }
+
+  // const users = [
+  //   { name: "Austin", age: 26 },
+  //   { name: "Carter", age: 24 },
+  //   { name: "Julia", age: 23 },
+  // ];
+
+```
