@@ -285,3 +285,5 @@ const numbers = [1, 2, 3] as const;
 
 const myObject = { age: 46 } as const;
 // myObject.age = 9 error
+
+generic function and custom hook in type script

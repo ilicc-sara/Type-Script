@@ -1,14 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
+import { useFetch } from "./useFetch";
+
+type User = {
+  name: string;
+  age: number;
+};
+
+type BlogPost = {
+  title: string;
+  description: string;
+  posted: Date;
+};
 
 const App = () => {
-  const myRef = useRef<HTMLSpanElement>(null);
+  const data = useFetch<string>("blahblahblah");
 
-  return (
-    <div>
-      <span ref={myRef}>Button</span>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
