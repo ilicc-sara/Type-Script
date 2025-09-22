@@ -278,3 +278,10 @@ export default Card;
 ```
 
 function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {}
+
+//////////////////////
+const numbers = [1, 2, 3] as const;
+// numbers[1] = 5; error
+
+const myObject = { age: 46 } as const;
+// myObject.age = 9 error
