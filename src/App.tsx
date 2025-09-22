@@ -1,23 +1,38 @@
-import { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { useFetch } from "./useFetch";
+import { useState, useContext, createContext } from "react";
+import Card from "./Card";
 
-type User = {
-  name: string;
-  age: number;
+type ContextType = {
+  user: string | null;
+  isLoggedIn: boolean;
+  logIn: () => void;
+  logOut: () => void;
 };
 
-type BlogPost = {
-  title: string;
-  description: string;
-  posted: Date;
-};
+const MyContext = createContext<ContextType | null>(null);
+function App() {
+  const [user, setUser] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-const App = () => {
-  const user = useFetch<User>("blahblahblah");
-  const blogPost = useFetch<BlogPost>("blahblahblah");
+  function logIn() {
+    setIsLoggedIn(true);
+  }
 
-  return <div></div>;
-};
+  function logOut() {
+    setIsLoggedIn(false);
+  }
 
-export default App;
+  const value: ContextType = { user, isLoggedIn, logIn, logOut };
+
+  return (
+    <MyContext.Provider value={value}>
+      <ChildComponent />
+    </MyContext.Provider>
+  );
+}
+
+function ChildComponent() {
+  const contextData = useContext(MyContext);
+
+  return <>{contextData && JSON.stringify(contextData)}</>;
+}
