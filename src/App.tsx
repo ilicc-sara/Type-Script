@@ -14,7 +14,8 @@ type BlogPost = {
 };
 
 const App = () => {
-  const data = useFetch<string>("blahblahblah");
+  const user = useFetch<User>("blahblahblah");
+  const blogPost = useFetch<BlogPost>("blahblahblah");
 
   return <div></div>;
 };
