@@ -276,3 +276,5 @@ export default Card;
   // ];
 
 ```
+
+function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {}
